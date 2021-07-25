@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fortify-mysql-db
+  namespace: mysqldb
+  labels:
+    app: fortify-mysql-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fortify-mysql-db
+  template:
+    metadata:
+      labels:
+        app: fortify-mysql-db
+    spec:
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: mysqlvolume
+      containers:
+      - name: mysql-db
+        image: quay.io/ksummersill2/mysql:8.0.26
+        ports:
+        - name: db
+          protocol: TCP
+          containerPort: 3306
+        volumeMounts:
+        - name: data
+          mountPath: /var/lib/mysql
+        imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            cpu: "2"
+            memory: "4000Mi"
+          requests:
+            cpu: "1"
+            memory: "1000Mi"
