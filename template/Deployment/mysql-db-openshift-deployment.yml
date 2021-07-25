@@ -22,6 +22,15 @@ spec:
       containers:
       - name: mysql-db
         image: quay.io/ksummersill2/mysql:8.0.26
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "Vap0123!"
+        - name: MYSQL_DATABASE
+          value: "ssc_db"
+        - name: MYSQL_USER
+          value: "sscuser"
+        - name: MYSQL_PASSWORD
+          value: "Vap0123"
         ports:
         - name: db
           protocol: TCP

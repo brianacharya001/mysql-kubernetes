@@ -1,0 +1,2 @@
+# MySQL Kubernetes Deployment for Fortify
+Fority Server 19c MySQL Installation: https://community.microfocus.com/cfs-file/__key/communityserver-wikis-components-files/00-00-00-03-32/Installing-SSC-19.2.0-with-MySQL-8-on-CentOS-8-Easy-Steps-v0.1.pdf
